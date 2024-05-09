@@ -36,19 +36,19 @@ export default function Home() {
           <div className="hero__container">
             <div className="hero | flex flex-col gap-4 mx-auto sm:mx-none">
               <div>
-                <h1 className={`fade-in | text-primary text-4xl ${lilita.className}`} style={{ '--delay': '250ms' }}>Canil Ponta do Recreio</h1>
-                <p className="fade-in | text-xl font-medium font-sans" style={{ '--delay': '400ms' }}>Paixão, carinho e dedicação</p>
+                <h1 className={`fade-in | text-primary text-4xl ${lilita.className}`} style={{ '--delay': '250ms' } as React.CSSProperties}>Canil Ponta do Recreio</h1>
+                <p className="fade-in | text-xl font-medium font-sans" style={{ '--delay': '400ms' } as React.CSSProperties}>Paixão, carinho e dedicação</p>
               </div>
               <article>
-                <p className="fade-in | text-xl font-light font-sans" style={{ '--delay': '400ms' }}>Canil especializado em Jack Russel com mais de 10 anos de experiência.</p>
+                <p className="fade-in | text-xl font-light font-sans" style={{ '--delay': '400ms' } as React.CSSProperties}>Canil especializado em Jack Russel com mais de 10 anos de experiência.</p>
                 {/* <p className="fade-in | text-xl font-light font-sans" style={{ '--delay': '400ms' }}>Pelo duro, Liso ou outro. O que o seu coração mandar.</p> */}
               </article>
               <article>
-                <h3 className={`fade-in | flex flex-col text-5xl ${lilita.className}`} style={{ '--delay': '650ms' }}><span className={"font-sans text-2xl font-bold"}>Temos</span> <span className="mt-2">O Jack Russel</span></h3>
+                <h3 className={`fade-in | flex flex-col text-5xl ${lilita.className}`} style={{ '--delay': '650ms' } as React.CSSProperties}><span className={"font-sans text-2xl font-bold"}>Temos</span> <span className="mt-2">O Jack Russel</span></h3>
                 <div className="md:flex gap-2 mt-4 items-end">
-                  <h2 className="fade-in | text-primary text-5xl items-end font-sans font-bold text-shadow" style={{ '--delay': '1100ms' }}>perfeito</h2>
-                  <p className="fade-in | text-xl font-sans" style={{ '--delay': '510ms' }}>para a sua</p>
-                  <h2 className={"fade-in | text-primary text-5xl font-sans font-bold text-shadow"} style={{ '--delay': '900ms' }}>família</h2>
+                  <h2 className="fade-in | text-primary text-5xl items-end font-sans font-bold text-shadow" style={{ '--delay': '1100ms' } as React.CSSProperties}>perfeito</h2>
+                  <p className="fade-in | text-xl font-sans" style={{ '--delay': '510ms' } as React.CSSProperties}>para a sua</p>
+                  <h2 className={"fade-in | text-primary text-5xl font-sans font-bold text-shadow"} style={{ '--delay': '900ms' } as React.CSSProperties}>família</h2>
                 </div>
               </article>
 
@@ -60,25 +60,25 @@ export default function Home() {
           </div>
           <div className="row-start-1 lg:col-start-2">
             <div className="mx-auto">
-              <Image className="fade-in | hero__image hero__image-back" src={HeroFront} alt="Banner" style={{ '--delay': '250ms' }} />
-              <Image className="fade-in | hero__image hero__image-front" src={HeroBack} alt="Banner" style={{ '--delay': '500ms' }} />
+              <Image className="fade-in | hero__image hero__image-back" src={HeroFront} alt="Banner" style={{ '--delay': '250ms' } as React.CSSProperties} />
+              <Image className="fade-in | hero__image hero__image-front" src={HeroBack} alt="Banner" style={{ '--delay': '500ms' } as React.CSSProperties} />
             </div>
           </div>
         </div>
       </section>
 
       <section className="py-8 bg-surface">
-        <h2 className={`fade-in | text-secondary text-4xl text-center ${lilita.className}`} style={{ '--delay': '250ms' }}>O Jack Russel</h2>
+        <h2 className={`fade-in | text-secondary text-4xl text-center ${lilita.className}`} style={{ '--delay': '250ms' } as React.CSSProperties}>O Jack Russel</h2>
         <div className=" app-container | grid md:grid-cols-9 mt-6">
-          <aside className="fade-in | col-span-5 px-5" style={{ '--delay': '250ms' }}>
+          <aside className="fade-in | col-span-5 px-5" style={{ '--delay': '250ms' } as React.CSSProperties}>
             <p className="text-xl font-light">Um companheiro cheio de energia e personalidade. O Jack Russell Terrier é o cão perfeito para quem busca um amigo leal e cheio de vitalidade. Com sua saúde robusta, esse cãozinho está sempre pronto para qualquer aventura ao seu lado.</p>
             <p className="mt-2 text-xl font-light">O temperamento do Jack Russell é único. Eles são sociáveis, companheiros e adoram estar perto de seus donos. </p>
             <p className="mt-2 text-xl font-light">Originado como um caçador, ele mantém suas habilidades de alerta e agilidade, tornando-o perfeito para atividades ao ar livre e treinamento.</p>
             <p className="mt-2 text-xl font-light">Ter um Jack Russell Terrier é mais do que ter um animal de estimação, é ganhar um companheiro para a vida toda. </p>
           </aside>
           <div className="flex flex-col sm:col-span-4 col-span-5 justify-between" >
-            <Image className="fade-in | mt-4 lg:mt-0 w-full" src={TheJack} alt="Jack Russel brincando com a bola" style={{ '--delay': '500ms' }} />
-            <button style={{ '--delay': '500ms' }} className="fade-in shake | mt-4 flex gap-2 items-center justify-center bg-primary lg:my-auto px-6 py-3 rounded transition-all duration-300 hover:brightness-75 text-white text-2xl font-bold hover:shadow-md">
+            <Image className="fade-in | mt-4 lg:mt-0 w-full" src={TheJack} alt="Jack Russel brincando com a bola" style={{ '--delay': '500ms' } as React.CSSProperties} />
+            <button style={{ '--delay': '500ms' } as React.CSSProperties} className="fade-in shake | mt-4 flex gap-2 items-center justify-center bg-primary lg:my-auto px-6 py-3 rounded transition-all duration-300 hover:brightness-75 text-white text-2xl font-bold hover:shadow-md">
               Quero o meu!
               <Paw />
             </button>
