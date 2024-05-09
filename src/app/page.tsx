@@ -52,7 +52,7 @@ export default function Home() {
                 </div>
               </article>
 
-              <button style={{ '--delay': '500ms' }} className="fade-in shake | flex gap-2 items-center justify-center bg-primary mt-5 px-6 py-3 rounded transition-all duration-300 text-white text-2xl font-bold hover:brightness-75 hover:shadow-md">
+              <button style={{ '--delay': '500ms' } as React.CSSProperties} className="fade-in shake | flex gap-2 items-center justify-center bg-primary mt-5 px-6 py-3 rounded transition-all duration-300 text-white text-2xl font-bold hover:brightness-75 hover:shadow-md">
                 Quero o meu!
                 <Paw />
               </button>
