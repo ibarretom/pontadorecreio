@@ -3,7 +3,7 @@
 import Image from "next/image";
 import HeroFront from "@/assets/images/hero_front.jpg";
 import HeroBack from "@/assets/images/hero_back.jpg";
-import { lilita } from "./layout";
+import { lilita } from "./lilita";
 import { Paw } from "@/components/icons/Paw";
 import TheJack from "@/assets/images/TheJack.png";
 import Arsene from "@/assets/images/Arsene.png";
@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <>
       <section>
-        <div className="app-container gap-12 | grid lg:grid-cols-2 grid-rows-2 py-8 my-8" style={{ 'grid-template-rows': "min-content" }}>
+        <div className="app-container gap-12 | grid lg:grid-cols-2 grid-rows-2 py-8 my-8" style={{ 'gridTemplateRows': "min-content" }}>
           <div className="hero__container">
             <div className="hero | flex flex-col gap-4 mx-auto sm:mx-none">
               <div>
