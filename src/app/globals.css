@@ -8,26 +8,160 @@
   --background-end-rgb: 255, 255, 255;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+} */ 
+
+* {
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: #64422E;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: grid;
+
+  grid-auto-flow: column;
+  grid-auto-columns: 25%;
+
+  grid-column-gap: 16px;
+}
+
+
+@media (max-width: 640px) {
+  .embla__container {
+    grid-auto-columns: 60%;
+  }
+}
+
+@media (max-width: 490px) {
+  .embla__container {
+    grid-auto-columns: 67%;
+  }
+} 
+
+.embla__slide {
+  min-width: 0;
+}
+
+.fade-in {
+  animation: fade ease-out 3s forwards;
+  animation-delay: var(--delay);
+  opacity: 0;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: up ease-in 1s forwards;
+  animation-delay: var(--delay);
+  transform: translateY(100%);
+}
+
+@keyframes up {
+  0% {
+    transform: translateY(40%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.scroll-fade {
+  animation: fade linear forwards;
+  animation-delay: var(--delay);
+  opacity: 0;
+  animation-timeline: view(250px);
+}
+
+.app-container {
+  max-width: 960px;
+  margin-inline: auto;
+  padding-inline: 16px;
+  margin-inline: auto;
+}
+
+
+button:hover.shake svg {
+  animation: shake 0.5s infinite ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotateZ(0);
+  }
+  25% {
+    transform: rotateZ(-5deg);
+  }
+  50% {
+    transform: rotateZ(5deg);
+  }
+  75% {
+    transform: rotateZ(5deg);
+  }
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+.hero {
+  max-width: 478px;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    max-width: 100%;
+  }
+}
+
+.hero__image {
+  max-width: 400px;
+  aspect-ratio: 16 /9;
+  display: block;
+}
+
+@media (max-width: 720px) {
+  .hero__image {
+    max-width: 280px;
+  }
+}
+
+.hero__image-back {
+  border-radius: 24px;
+}
+
+.hero__image-front {
+  margin-block-start: -50px;
+  margin-inline-start: 45%;
+  border-radius: 106px;
+}
+
+@media (max-width: 720px) {
+  .hero__image-front {
+    margin-inline-start: 15%;
   }
 }

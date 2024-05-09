@@ -1,113 +1,241 @@
+'use client';
+
 import Image from "next/image";
+import HeroFront from "@/assets/images/hero_front.jpg";
+import HeroBack from "@/assets/images/hero_back.jpg";
+import { lilita } from "./layout";
+import { Paw } from "@/components/icons/Paw";
+import TheJack from "@/assets/images/TheJack.png";
+import Arsene from "@/assets/images/Arsene.png";
+import Mask from "@/assets/images/Mask.png";
+import useEmblaCarousel from 'embla-carousel-react'
+
+import F1 from "@/assets/images/f1.webp";
+import F2 from "@/assets/images/f2.webp";
+import F3 from "@/assets/images/f3.webp";
+import F4 from "@/assets/images/f4.webp";
+import { useCallback } from "react";
+import { ChevronLeft } from "@/components/icons/ChevronLeft";
+import { ChevronRight } from "@/components/icons/ChevronRight";
 
 export default function Home() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false })
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <section>
+        <div className="app-container gap-12 | grid lg:grid-cols-2 grid-rows-2 py-8 my-8" style={{ 'grid-template-rows': "min-content" }}>
+          <div className="hero__container">
+            <div className="hero | flex flex-col gap-4 mx-auto sm:mx-none">
+              <div>
+                <h1 className={`fade-in | text-primary text-4xl ${lilita.className}`} style={{ '--delay': '250ms' }}>Canil Ponta do Recreio</h1>
+                <p className="fade-in | text-xl font-medium font-sans" style={{ '--delay': '400ms' }}>Paixão, carinho e dedicação</p>
+              </div>
+              <article>
+                <p className="fade-in | text-xl font-light font-sans" style={{ '--delay': '400ms' }}>Canil especializado em Jack Russel com mais de 10 anos de experiência.</p>
+                {/* <p className="fade-in | text-xl font-light font-sans" style={{ '--delay': '400ms' }}>Pelo duro, Liso ou outro. O que o seu coração mandar.</p> */}
+              </article>
+              <article>
+                <h3 className={`fade-in | flex flex-col text-5xl ${lilita.className}`} style={{ '--delay': '650ms' }}><span className={"font-sans text-2xl font-bold"}>Temos</span> <span className="mt-2">O Jack Russel</span></h3>
+                <div className="md:flex gap-2 mt-4 items-end">
+                  <h2 className="fade-in | text-primary text-5xl items-end font-sans font-bold text-shadow" style={{ '--delay': '1100ms' }}>perfeito</h2>
+                  <p className="fade-in | text-xl font-sans" style={{ '--delay': '510ms' }}>para a sua</p>
+                  <h2 className={"fade-in | text-primary text-5xl font-sans font-bold text-shadow"} style={{ '--delay': '900ms' }}>família</h2>
+                </div>
+              </article>
+
+              <button style={{ '--delay': '500ms' }} className="fade-in shake | flex gap-2 items-center justify-center bg-primary mt-5 px-6 py-3 rounded transition-all duration-300 text-white text-2xl font-bold hover:brightness-75 hover:shadow-md">
+                Quero o meu!
+                <Paw />
+              </button>
+            </div>
+          </div>
+          <div className="row-start-1 lg:col-start-2">
+            <div className="mx-auto">
+              <Image className="fade-in | hero__image hero__image-back" src={HeroFront} alt="Banner" style={{ '--delay': '250ms' }} />
+              <Image className="fade-in | hero__image hero__image-front" src={HeroBack} alt="Banner" style={{ '--delay': '500ms' }} />
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <section className="py-8 bg-surface">
+        <h2 className={`fade-in | text-secondary text-4xl text-center ${lilita.className}`} style={{ '--delay': '250ms' }}>O Jack Russel</h2>
+        <div className=" app-container | grid md:grid-cols-9 mt-6">
+          <aside className="fade-in | col-span-5 px-5" style={{ '--delay': '250ms' }}>
+            <p className="text-xl font-light">Um companheiro cheio de energia e personalidade. O Jack Russell Terrier é o cão perfeito para quem busca um amigo leal e cheio de vitalidade. Com sua saúde robusta, esse cãozinho está sempre pronto para qualquer aventura ao seu lado.</p>
+            <p className="mt-2 text-xl font-light">O temperamento do Jack Russell é único. Eles são sociáveis, companheiros e adoram estar perto de seus donos. </p>
+            <p className="mt-2 text-xl font-light">Originado como um caçador, ele mantém suas habilidades de alerta e agilidade, tornando-o perfeito para atividades ao ar livre e treinamento.</p>
+            <p className="mt-2 text-xl font-light">Ter um Jack Russell Terrier é mais do que ter um animal de estimação, é ganhar um companheiro para a vida toda. </p>
+          </aside>
+          <div className="flex flex-col sm:col-span-4 col-span-5 justify-between" >
+            <Image className="fade-in | mt-4 lg:mt-0 w-full" src={TheJack} alt="Jack Russel brincando com a bola" style={{ '--delay': '500ms' }} />
+            <button style={{ '--delay': '500ms' }} className="fade-in shake | mt-4 flex gap-2 items-center justify-center bg-primary lg:my-auto px-6 py-3 rounded transition-all duration-300 hover:brightness-75 text-white text-2xl font-bold hover:shadow-md">
+              Quero o meu!
+              <Paw />
+            </button>
+          </div>
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <section className="py-8">
+        <h2 className={`scroll-fade | text-primary text-center text-4xl ${lilita.className}`}>Artista de cinema</h2>
+        <div className="app-container">
+          <div className="grid grid-cols-9 mt-8 flex-reverse">
+            <div className="sm:col-span-5 col-span-6 col-start-5 flex flex-col gap-1">
+              <h4 className={`scroll-fade | text-xl font-bold text-secondary`}>Le complice de Lupin (Série da Netflix)</h4>
+              <p className={`scroll-fade | text-xl font-light text-secondary`}>Fiel companheiro do personagem Assane Diop, interpretado por Omar Sy. </p>
+              <p className={`scroll-fade | text-xl font-light text-secondary`}>Esse cãozinho enérgico e cheio de personalidade acompanha Assane em suas aventuras</p>
+              <p className={`scroll-fade | text-xl font-light text-secondary`}>Uma das cenas memoráveis é quando o Jack Russell Terrier, ao ouvir o nome de Pelegrini, o arqui-inimigo de Assane, late, como resposta negativa ao nome.</p>
+            </div>
+            <div className="sm:col-span-2 col-span-3 col-start-1 row-start-1">
+              <Image className="sticky top-0 scroll-fade" src={Arsene} alt="Jack Russel brincando com a bola" />
+            </div>
+          </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          <div className="grid grid-cols-9 mt-8">
+            <div className="sm:col-span-5 col-span-6 sm:col-start-3 col-start-1 flex flex-col gap-1">
+              <h4 className={`scroll-fade | text-xl font-bold text-secondary text-end`}>O Máskara</h4>
+              <p className={`scroll-fade | text-xl font-light text-secondary`}>Aparição inesquecível como o fiel companheiro de Stanley Ipkiss, interpretado por Jim Carrey.</p>
+              <p className={`scroll-fade | text-xl font-light text-secondary`}>O cãozinho, chamado Milo, desempenha um papel fundamental na história, ao lado de Stanley, que acaba se transformando no icônico super-herói verde.</p>
+              <p className={`scroll-fade | text-xl font-light text-secondary`}>Uma das cenas mais memoráveis é quando Milo usa a máscara por acidente e se transforma em um cão superpoderoso, exibindo habilidades incríveis e causando confusão por onde passa.</p>
+            </div>
+            <div className="sm:col-span-2 col-span-3 flex items-end">
+              <Image className="sticky bottom-0 scroll-fade" src={Mask} alt="Jack Russel brincando com a bola" />
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+      <section className="py-8">
+        <h2 className={`px-4 text-secondary text-4xl text-center ${lilita.className}`}>Filhotes para chamar de seu</h2>
+        <div className="mt-6" style={{ 'maxWidth': "960px", "marginInline": "auto" }}>
+          <div className="embla">
+            <div className="embla__viewport" ref={emblaRef}>
+              <div className="embla__container">
+                <div className="embla__slide ml-2">
+                  <Image src={F1} alt="filhote de Jack Russel" className="rounded-lg" style={{ height: "290px" }} />
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+                  <h4 className="text-secondary font-medium text-lg mt-2">CADU PONTA DO RECREIO</h4>
+
+                  <div className="flex justify-between my-2">
+                    <span className="font-light">Macho</span>
+                    <span className="font-light">Branco e Marrom</span>
+                  </div>
+
+                  <button className="flex gap-2 items-center justify-center bg-primary w-full my-auto px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-white text-xl font-medium hover:shadow-md">
+                    Eu quero esse artista
+                  </button>
+
+                  <button className="flex gap-2 items-center justify-center w-full border border border-secondary mt-2 px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-secondary text-xl font-medium hover:shadow-md">
+                    me conta mais
+                  </button>
+                </div>
+                <div className="embla__slide">
+                  <Image src={F3} alt="filhote de Jack Russel" className="rounded-lg" style={{ height: "290px", objectFit: 'cover' }} />
+
+                  <h4 className="text-secondary font-medium text-lg mt-2">DIVA PONTA DO RECREIO</h4>
+
+                  <div className="flex justify-between my-2">
+                    <span className="font-light">Fêmea</span>
+                    <span className="font-light">Branco e Marrom</span>
+                  </div>
+
+                  <button className="flex gap-2 items-center justify-center bg-primary w-full my-auto px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-white text-xl font-medium hover:shadow-md">
+                    Eu quero esse artista
+                  </button>
+
+                  <button className="flex gap-2 items-center justify-center w-full border border border-secondary mt-2 px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-secondary text-xl font-medium hover:shadow-md">
+                    me conta mais
+                  </button>
+                </div>
+                <div className="embla__slide">
+                  <Image src={F4} alt="filhote de Jack Russel" className="rounded-lg" style={{ height: "290px", objectFit: 'cover' }} />
+
+                  <h4 className="text-secondary font-medium text-lg mt-2">DORA PONTA DO RECREIO</h4>
+
+                  <div className="flex justify-between my-2">
+                    <span className="font-light">Fêmea</span>
+                    <span className="font-light">Branco e Preto</span>
+                  </div>
+
+                  <button className="flex gap-2 items-center justify-center bg-primary w-full my-auto px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-white text-xl font-medium hover:shadow-md">
+                    Eu quero esse artista
+                  </button>
+
+                  <button className="flex gap-2 items-center justify-center w-full border border border-secondary mt-2 px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-secondary text-xl font-medium hover:shadow-md">
+                    me conta mais
+                  </button>
+                </div>
+                <div className="embla__slide ">
+                  <Image src={F2} alt="filhote de Jack Russel" className="rounded-lg" style={{ height: "290px", objectFit: 'cover' }} />
+
+                  <h4 className="text-secondary font-medium text-lg mt-2">CADU PONTA DO RECREIO</h4>
+
+                  <div className="flex justify-between my-2">
+                    <span className="font-light">Macho</span>
+                    <span className="font-light">Branco e Marrom</span>
+                  </div>
+
+                  <button className="flex gap-2 items-center justify-center bg-primary w-full my-auto px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-white text-xl font-medium hover:shadow-md">
+                    Eu quero esse artista
+                  </button>
+
+                  <button className="flex gap-2 items-center justify-center w-full border border border-secondary mt-2 px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-secondary text-xl font-medium hover:shadow-md">
+                    me conta mais
+                  </button>
+                </div>
+                <div className="embla__slide">
+                  <Image src={F2} alt="filhote de Jack Russel" className="rounded-lg" style={{ height: "290px", objectFit: 'cover' }} />
+
+                  <h4 className="text-secondary font-medium text-lg mt-2">CADU PONTA DO RECREIO</h4>
+
+                  <div className="flex justify-between my-2">
+                    <span className="font-light">Macho</span>
+                    <span className="font-light">Branco e Marrom</span>
+                  </div>
+
+                  <button className="flex gap-2 items-center justify-center bg-primary w-full my-auto px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-white text-xl font-medium hover:shadow-md">
+                    Eu quero esse artista
+                  </button>
+
+                  <button className="flex gap-2 items-center justify-center w-full border border border-secondary mt-2 px-6 py-2 rounded transition-all duration-300 hover:brightness-75 text-secondary text-xl font-medium hover:shadow-md">
+                    me conta mais
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-between">
+              <button className="embla__prev rounded-full border-2 mt-2" onClick={scrollPrev}>
+                <ChevronLeft />
+              </button>
+              <button className="embla__next border-2 rounded-full ml-3 mt-2" onClick={scrollNext}>
+                <ChevronRight />
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-surface pt-7">
+        <div className="app-container | grid lg:grid-cols-2 grid-rows-2">
+          <div className={"flex flex-col items-center sm:items-start"}>
+            <h4 className="mb-4 text-2xl">Contato</h4>
+            <span className="">+55 (21) 999550581</span>
+            <span>pontadorecreio@gmail.com</span>
+            <span>Rio de Janeiro - RJ</span>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

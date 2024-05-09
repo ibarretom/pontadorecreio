@@ -13,6 +13,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        "primary": "#D9895B",
+        "secondary": "#64422E",
+        "black": "#191313",
+        "surface": "#F8F8F8"
+      },
+      fontFamily: {
+        'display': ["Lilita", "Lato", 'sans-serif'],
+        'body': ['Lato', 'sans-serif'],
+        'sans': ['Lato', 'sans-serif'],
+      }
     },
   },
   plugins: [],
